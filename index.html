@@ -6,8 +6,8 @@
     <link rel="stylesheet" href="style/bootstrap.css" />
     <title>GitHub-Finder</title>
   </head>
-  <body>
-    <nav class="navbar bg-primary">
+  <body style="height: 100vh">
+    <nav class="navbar bg-primary mb-5">
       <div class="container-md d-flex justify-content-center">
         <a class="navbar-brand text-light fw-bold" href="#">
           GitHub-Finder
@@ -26,7 +26,54 @@
         </a>
       </div>
     </nav>
-    
+    <div class="container mb-3">
+      <div class="card">
+        <div class="card-body">
+          <h1 class="card-title text-center mb-3">Search GitHub Users</h1>
+          <p class="card-text text-center">
+            Enter a username to fetch a user profile and repos
+          </p>
+          <input
+            type="text"
+            class="form-control"
+            placeholder="Enter GitHub Username"
+          />
+        </div>
+      </div>
+    </div>
+    <div class="container">
+      <div class="card p-3">
+        <div class="row">
+          <div class="col-md-3">
+            <img src="static/test.jpg" alt="" class="img-fluid mb-3" />
+            <button class="btn btn-primary w-100">View Profile</button>
+          </div>
+          <div class="col-md-9 mt-3">
+            <div class="mb-4 d-flex justify-content-center flex-wrap gap-2">
+              <span class="badge text-bg-secondary p-2">Public Repos: 239</span>
+              <span class="badge text-bg-danger p-2">Public Gists: 87</span>
+              <span class="badge text-bg-success p-2">Followers: 8227</span>
+              <span class="badge text-bg-warning p-2">Following: 138</span>
+            </div>
+            <ul class="list-group">
+              <li class="list-group-item">Company: @teknasyon</li>
+              <li class="list-group-item">
+                Website/Blog: http://twitter.com/fkadev
+              </li>
+              <li class="list-group-item">Location: Istanbul, Turkey</li>
+              <li class="list-group-item">
+                Member Since: 2010-02-04T09:04:51Z
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <footer
+      class="bg-light py-3 mt-5 position-sticky w-100 bottom-0 text-center"
+    >
+      GitHub Finder &copy;
+    </footer>
     <script src="script/bootstrap.js"></script>
     <script src="script/main.js"></script>
   </body>
