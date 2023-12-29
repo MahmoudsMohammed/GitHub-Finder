@@ -6,7 +6,7 @@
     <link rel="stylesheet" href="style/bootstrap.css" />
     <title>GitHub-Finder</title>
   </head>
-  <body style="height: 100vh">
+  <body style="height: 100vh" class="position-relative">
     <nav class="navbar bg-primary mb-5">
       <div class="container-md d-flex justify-content-center">
         <a class="navbar-brand text-light fw-bold" href="#">
@@ -35,18 +35,25 @@
           </p>
           <input
             type="text"
-            class="form-control"
+            class="form-control p-3"
             placeholder="Enter GitHub Username"
           />
         </div>
       </div>
     </div>
-    <div class="container">
-      <div class="card p-3">
+    <div class="container d-none" id="profile-info">
+      <!-- <div class="card p-3">
         <div class="row">
           <div class="col-md-3">
-            <img src="static/test.jpg" alt="" class="img-fluid mb-3" />
-            <button class="btn btn-primary w-100">View Profile</button>
+            <img
+              src=""
+              alt=""
+              loading="lazy"
+              class="img-fluid mb-3"
+            />
+            <button class="btn btn-primary w-100">
+              View Profile
+            </button>
           </div>
           <div class="col-md-9 mt-3">
             <div class="mb-4 d-flex justify-content-center flex-wrap gap-2">
@@ -67,10 +74,23 @@
             </ul>
           </div>
         </div>
-      </div>
+      </div> -->
+    </div>
+    <div class="container d-none" id="repos-container">
+      <h2 class="page-heading my-3">Latest Repos</h2>
+      <!-- <div class="card p-3 mb-2">
+        <div class="d-flex flex-wrap justify-content-between">
+          <a href="#"></a>
+          <div class="mt-3 mt-sm-0 d-flex">
+            <span class="badge text-bg-warning p-2 me-1"></span>
+            <span class="badge text-bg-danger p-2 me-1"></span>
+            <span class="badge text-bg-dark p-2 me-1"></span>
+          </div>
+        </div>
+      </div> -->
     </div>
     <footer
-      class="bg-light py-3 mt-5 position-sticky w-100 bottom-0 text-center"
+      class="bg-dark text-light py-3 mt-5 w-100 position-absolute bottom-0 text-center"
     >
       GitHub Finder &copy;
     </footer>
