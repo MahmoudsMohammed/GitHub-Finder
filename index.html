@@ -6,8 +6,8 @@
     <link rel="stylesheet" href="style/bootstrap.css" />
     <title>GitHub-Finder</title>
   </head>
-  <body style="height: 100vh" class="position-relative">
-    <nav class="navbar bg-primary mb-5">
+  <body class="">
+    <nav class="navbar bg-primary mb-4">
       <div class="container-md d-flex justify-content-center">
         <a class="navbar-brand text-light fw-bold" href="#">
           GitHub-Finder
@@ -27,6 +27,9 @@
       </div>
     </nav>
     <div class="container mb-3">
+      <p class="alert alert-danger" style="display: none" id="alert">
+        User Not Found
+      </p>
       <div class="card">
         <div class="card-body">
           <h1 class="card-title text-center mb-3">Search GitHub Users</h1>
@@ -35,68 +38,22 @@
           </p>
           <input
             type="text"
+            id="input"
             class="form-control p-3"
             placeholder="Enter GitHub Username"
           />
+          <a href=""></a>
         </div>
       </div>
     </div>
-    <div class="container d-none" id="profile-info">
-      <!-- <div class="card p-3">
-        <div class="row">
-          <div class="col-md-3">
-            <img
-              src=""
-              alt=""
-              loading="lazy"
-              class="img-fluid mb-3"
-            />
-            <button class="btn btn-primary w-100">
-              View Profile
-            </button>
-          </div>
-          <div class="col-md-9 mt-3">
-            <div class="mb-4 d-flex justify-content-center flex-wrap gap-2">
-              <span class="badge text-bg-secondary p-2">Public Repos: 239</span>
-              <span class="badge text-bg-danger p-2">Public Gists: 87</span>
-              <span class="badge text-bg-success p-2">Followers: 8227</span>
-              <span class="badge text-bg-warning p-2">Following: 138</span>
-            </div>
-            <ul class="list-group">
-              <li class="list-group-item">Company: @teknasyon</li>
-              <li class="list-group-item">
-                Website/Blog: http://twitter.com/fkadev
-              </li>
-              <li class="list-group-item">Location: Istanbul, Turkey</li>
-              <li class="list-group-item">
-                Member Since: 2010-02-04T09:04:51Z
-              </li>
-            </ul>
-          </div>
-        </div>
-      </div> -->
-    </div>
-    <div class="container d-none" id="repos-container">
+    <div class="container" style="display: none" id="profile-info"></div>
+    <div class="container mt-3" style="display: none" id="repos-container">
       <h2 class="page-heading my-3">Latest Repos</h2>
-      <!-- <div class="card p-3 mb-2">
-        <div class="d-flex flex-wrap justify-content-between">
-          <a href="#"></a>
-          <div class="mt-3 mt-sm-0 d-flex">
-            <span class="badge text-bg-warning p-2 me-1"></span>
-            <span class="badge text-bg-danger p-2 me-1"></span>
-            <span class="badge text-bg-dark p-2 me-1"></span>
-          </div>
-        </div>
-      </div> -->
     </div>
-    <footer
-      class="bg-dark text-light py-3 mt-5 w-100 position-absolute bottom-0 text-center"
-    >
+    <footer class="bg-dark text-light py-3 mt-5 w-100 text-center">
       GitHub Finder &copy;
     </footer>
     <script src="script/bootstrap.js"></script>
     <script src="script/main.js"></script>
   </body>
 </html>
-<!-- 7c66f7eced0d99fa8e4c -->
-<!-- da05d6bba9168e2a3570693e09d1e5b2cb3b9655 -->
