@@ -11,16 +11,25 @@ var __awaiter = (this && this.__awaiter) || function (thisArg, _arguments, P, ge
 const input = document.getElementById('input'), profile = document.getElementById('profile-info'), repos = document.getElementById('repos-container'), message = document.getElementById('alert');
 // Add Event Listener
 input.addEventListener('keyup', (e) => {
-    Conection.conect(e.target.value).then((data) => {
-        if (data.userDate.message === 'Not Found') {
-            message.style.display = 'block';
-        }
-        else {
-            message.style.display = 'none';
-            UI.displayProfile(data.userDate);
-            UI.displayRepos(data.reposData);
-        }
-    });
+    // If there is no input
+    if (e.target.value === '') {
+        repos.style.display = 'none';
+        profile.style.display = 'none';
+        message.style.display = 'none';
+    }
+    else {
+        // take input and make request for this user data
+        Conection.conect(e.target.value).then((data) => {
+            if (data.userDate.message === 'Not Found') {
+                message.style.display = 'block';
+            }
+            else {
+                message.style.display = 'none';
+                UI.displayProfile(data.userDate);
+                UI.displayRepos(data.reposData);
+            }
+        });
+    }
 });
 // Conection Class
 class Conection {
@@ -38,7 +47,6 @@ class Conection {
 // UI Class
 class UI {
     static displayProfile(data) {
-        profile.style.display = 'block';
         let contant = `
     <div class="card p-3">
     <div class="row">
@@ -73,10 +81,10 @@ class UI {
   </div>
     `;
         profile.innerHTML = contant;
+        profile.style.display = 'block';
     }
     static displayRepos(data) {
         if (data.length > 0) {
-            repos.style.display = 'block';
             let content = '';
             data.forEach((e) => {
                 content += `
@@ -94,11 +102,13 @@ class UI {
             });
             repos.innerHTML =
                 `<h2 class="page-heading my-3">Latest Repos</h2>` + content;
+            repos.style.display = 'block';
         }
         else {
             repos.innerHTML =
                 `<h2 class="page-heading my-3">Latest Repos</h2>` +
                     `<p class="alert alert-warning">This User Has No Repos To Display</p>`;
+            repos.style.display = 'block';
         }
     }
 }
