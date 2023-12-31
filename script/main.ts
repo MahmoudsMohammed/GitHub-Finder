@@ -6,8 +6,13 @@ const input = document.getElementById('input') as HTMLElement,
 // Add Event Listener
 input.addEventListener('keyup', (e: Event) => {
   Conection.conect((e.target as HTMLInputElement).value).then((data) => {
-    UI.displayProfile(data.userDate);
-    UI.displayRepos(data.reposData);
+    if (data.userDate.message === 'Not Found') {
+      message.style.display = 'block';
+    } else {
+      message.style.display = 'none';
+      UI.displayProfile(data.userDate);
+      UI.displayRepos(data.reposData);
+    }
   });
 });
 
@@ -40,9 +45,8 @@ class UI {
           alt=""
           class="img-fluid mb-3"
         />
-        <button class="btn btn-primary w-100">
-      <a href="${data.html_url}" target="_blank" class="text-light text-decoration-none">View Profile</a>
-      </button>
+
+      <a href="${data.html_url}" target="_blank" class="text-light text-decoration-none w-100 btn btn-primary">View Profile</a>
       </div>
       <div class="col-md-9 mt-3">
         <div class="mb-4 d-flex justify-content-center flex-wrap gap-2">
@@ -67,23 +71,30 @@ class UI {
     `;
     profile.innerHTML = contant;
   }
-  static displayRepos(date) {
-    repos.style.display = 'block';
-    let content: string = '';
-    date.forEach((e) => {
-      content += `
+  static displayRepos(data) {
+    if (data.length > 0) {
+      repos.style.display = 'block';
+      let content: string = '';
+      data.forEach((e) => {
+        content += `
       <div class="card p-3 mb-2">
       <div class="d-flex flex-wrap align-items-center justify-content-between">
-        <a href="${e.url}">${e.name}</a>
+        <a href="${e.html_url}" target="_blank">${e.name}</a>
         <div class="mt-3 mt-sm-0 d-flex">
           <span class="badge text-bg-warning p-2 me-1">Stars: ${e.stargazers_count}</span>
           <span class="badge text-bg-danger p-2 me-1">Watchers: ${e.watchers_count}</span>
-          <span class="badge text-bg-dark p-2 me-1">Forks: ${e.forms_count}</span>
+          <span class="badge text-bg-dark p-2 me-1">Forks: ${e.forks_count}</span>
         </div>
       </div>
     </div>
       `;
-    });
-    repos.innerHTML = content;
+      });
+      repos.innerHTML =
+        `<h2 class="page-heading my-3">Latest Repos</h2>` + content;
+    } else {
+      repos.innerHTML =
+        `<h2 class="page-heading my-3">Latest Repos</h2>` +
+        `<p class="alert alert-warning">This User Has No Repos To Display</p>`;
+    }
   }
 }
