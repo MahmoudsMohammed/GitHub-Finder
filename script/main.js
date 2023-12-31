@@ -36,8 +36,7 @@ class Conection {
     static conect(user) {
         return __awaiter(this, void 0, void 0, function* () {
             let users = yield fetch(`https://api.github.com/users/${user}?client_id=7c66f7eced0d99fa8e4c&client_secret=da05d6bba9168e2a3570693e09d1e5b2cb3b9655`);
-            let repos = yield fetch(`https://api.github.com/users/${user}/repos?
-      per_page=5&client_id=7c66f7eced0d99fa8e4c&client_secret=da05d6bba9168e2a3570693e09d1e5b2cb3b9655`);
+            let repos = yield fetch(`https://api.github.com/users/${user}/repos?per_page=5&sort='created: asc'&client_id=7c66f7eced0d99fa8e4c&client_secret=da05d6bba9168e2a3570693e09d1e5b2cb3b9655`);
             let userDate = yield users.json();
             let reposData = yield repos.json();
             return { userDate, reposData };
@@ -86,8 +85,9 @@ class UI {
     static displayRepos(data) {
         if (data.length > 0) {
             let content = '';
-            data.forEach((e) => {
-                content += `
+            data.forEach((e, i) => {
+                if (i < 5) {
+                    content += `
       <div class="card p-3 mb-2">
       <div class="d-flex flex-wrap align-items-center justify-content-between">
         <a href="${e.html_url}" target="_blank">${e.name}</a>
@@ -99,6 +99,7 @@ class UI {
       </div>
     </div>
       `;
+                }
             });
             repos.innerHTML =
                 `<h2 class="page-heading my-3">Latest Repos</h2>` + content;
