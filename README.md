@@ -26,13 +26,12 @@ Users should be able to:
 
 ### Screenshot
 
-- Desktop view
 
 ![](static/screen.jpeg)
 
 ### Links
 
-- Live Site URL : [GitHub-Finder](https://mahmoudsmohammed.github.io/Number-Guesser/)
+- Live Site URL : [GitHub-Finder](https://mahmoudsmohammed.github.io/GitHub-Finder/)
 
 ## My process
 
